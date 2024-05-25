@@ -1,0 +1,15 @@
+.MMM-Ternary-clock  #main {
+	display: flex;
+}
+
+.MMM-Ternary-clock  #svgBox {
+	margin: auto;
+	height: 90vh;
+	max-height: 100vw;
+	width: 90vh;
+	border-radius: 1vh;
+}
+
+.MMM-Ternary-clock path {
+	transition: transform 500ms;
+}

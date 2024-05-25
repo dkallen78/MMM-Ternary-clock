@@ -2,6 +2,7 @@
 Module.register("MMM-Ternary-clock", {
 	// define variables used by module, but not in
 
+  getStyles: function() { return ["MMM-Ternary-clock.css"]},
   getScripts: function(){ return ["ternary-clock.js"]},
 	getDom: function(){
 		let div = document.createElement('div')
