@@ -223,6 +223,7 @@ function makeArcs(n, r1, r2, type) {
 			A ${radius1} ${radius1} 0 0 ${type === "terns" ? 1 : 0}
 				${a1.x} ${a1.y}
 		`);
+    path.setAttribute("fill", "white");
 		path.classList.add(type);
 
 		path.id = `${type[0]}${i}`;
