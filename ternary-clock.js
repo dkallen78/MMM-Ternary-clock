@@ -301,7 +301,7 @@ function clearBand(band) {
 	//----------------------------------------------------//s
 
 	let paths = document.getElementsByClassName(band);
-	let count = 1;
+	let count = 2;
 	let clearSpeed = 81 / paths.length;
 
 	let pathClear = setInterval(function() {
