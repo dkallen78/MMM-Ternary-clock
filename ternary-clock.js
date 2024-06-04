@@ -1,3 +1,15 @@
+let box = null
+
+let center = null
+
+let maxRad = 0
+
+let gap = .005;
+let tern = 0
+let hour = 0
+let minute = 0
+let second = 0;
+
    class Point {
 	//----------------------------------------------------//
 	//A data structure to make managing and representing	//
@@ -334,50 +346,53 @@ function gears() {
 	//	when the time changes															//
 	//----------------------------------------------------//
 
+
 	let svgBox = document.getElementById("svgBox");
 	if(svgBox !=null){
-	if (time.second !== second) {
+		if (time.second !== second) {
 
-		if (time.minute !== minute) {
+			if (time.minute !== minute) {
 
-			if (time.hour !== hour) {
+				if (time.hour !== hour) {
 
-				if (time.tern !== tern) {
-					clearBand("hours");
-					tern = time.tern;
-					if (tern === 0) {
-						clearBand("terns");
+					if (time.tern !== tern) {
+						clearBand("hours");
+						tern = time.tern;
+						if (tern === 0) {
+							clearBand("terns");
+						}
+	          time.setTime("t", tern);
 					}
-          time.setTime("t", tern);
+					clearBand("minutes");
+					hour = time.hour;
+	        time.setTime("h", hour);
 				}
-				clearBand("minutes");
-				hour = time.hour;
-        time.setTime("h", hour);
+				clearBand("seconds");
+				minute = time.minute;
+	      time.setTime("m", minute);
 			}
-			clearBand("seconds");
-			minute = time.minute;
-      time.setTime("m", minute);
+			second = time.second;
+	    time.setTime("s", second);
 		}
-		second = time.second;
-    time.setTime("s", second);
 	}
 }
 
+function startClock(){
 //
-let box = svgBox.getBoundingClientRect();
+box = svgBox.getBoundingClientRect();
 
-const center = new Point((box.width * .5), (box.height * .5));
+center = new Point((box.width * .5), (box.height * .5));
 
-let maxRad = Math.sqrt(2 * ((box.width / 2) ** 2));
+maxRad = Math.sqrt(2 * ((box.width / 2) ** 2));
 
-let gap = .005;
+gap = .005;
 
 makeFace();
 
-let tern = time.tern;
-let hour = time.hour;
-let minute = time.minute;
-let second = time.second;
+tern = time.tern;
+hour = time.hour;
+minute = time.minute;
+second = time.second;
 
 time.setTime("t", tern);
 backfillBand("terns", tern);
@@ -387,6 +402,15 @@ time.setTime("m", minute);
 backfillBand("minutes", minute);
 time.setTime("s", second);
 backfillBand("seconds", second);
-}
+
 
 let refreshInterval = setInterval(gears, 10);
+}
+
+let handle = setInterval(()=>{
+		let svgBox = document.getElementById("svgBox");
+		if(svgBox != null){
+			clearInterval(handle)
+			startClock()
+		}
+}, 1000)
