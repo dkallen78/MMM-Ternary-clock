@@ -6,10 +6,9 @@ Module.register("MMM-Ternary-clock", {
   getScripts: function(){ return ["ternary-clock.js"]},
 	getDom: function(){
 		let div = document.createElement('div')
-		let svg = document.createElement('svg')
+    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 		div.id="main"
 		svg.id='svgBox'
-		svg.setAttribute('xmlns','http://www.w3.org/2000/svg')
 		div.appendChild(svg)
 		return div
 		//return '<div id="main"><svg id="svgBox" xmlns="http://www.w3.org/2000/svg"></svg>'
