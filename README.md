@@ -1,6 +1,6 @@
 This is a module that displays a clock for an alternative time-keeping paradigm based on ternary numbers.
 
-##Installation
+## Installation
 
 Navigate to your modules folder (cd ~/MagicMirror/modules) and execute this command:
 ```
