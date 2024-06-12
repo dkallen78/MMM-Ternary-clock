@@ -1,13 +1,10 @@
 
 Module.register("MMM-Ternary-clock", {
 	// define variables used by module, but not in
-	defaults:{
-
-	},
 
   defaults: {
-    color: 
-  }
+    color: "white";
+  },
   getStyles: function() { return ["MMM-Ternary-clock.css"]},
   getScripts: function(){ return ["ternary-clock.js"]},
 	getDom: function(){
