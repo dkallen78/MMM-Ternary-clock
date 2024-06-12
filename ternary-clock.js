@@ -223,7 +223,7 @@ function makeArcs(n, r1, r2, type) {
 			A ${radius1} ${radius1} 0 0 ${type === "terns" ? 1 : 0}
 				${a1.x} ${a1.y}
 		`);
-    path.setAttribute("fill", "white");
+    path.setAttribute("fill", this.config.color);
 		path.classList.add(type);
 
 		path.id = `${type[0]}${i}`;
@@ -287,7 +287,7 @@ function backfillBand(band, time) {
 
 	let paths = document.getElementsByClassName(band);
 
-	for (let i = 0; i < time; i++) {
+	for (let i = 0; i <= time; i++) {
     cellUp(paths[i]);
 	}
 }
