@@ -411,7 +411,8 @@ let refreshInterval = setInterval(gears, 10);
 let handle = setInterval(()=>{
 		let svgBox = document.getElementById("svgBox");
 		if(svgBox != null){
-			clearInterval(handle)
+			clearInterval(handle);
+      console.log(this.config.color);
 			startClock()
 		}
 }, 1000)
