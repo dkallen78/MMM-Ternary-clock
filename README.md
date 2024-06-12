@@ -11,6 +11,12 @@ or
 ```
 git clone https://github.com/dkallen78/MMM-Ternary-clock.git
 ```
+## Configuration options
+
+| Option | Description | Default | Possible |
+| ------ | ----------- | ------- | -------- |
+| `color`  | Which color you want the cells to be | `white` | CSS color string |
+
 ## Explanation
 
 This clock was inspired by a conversation I had with someone on Reddit who challenged me to make a clock that used numbers in a balanced ternary base. Displaying regular sexagesimal time in a different base isn't too interesting from a visual standpoint so I wanted to do something different. 
