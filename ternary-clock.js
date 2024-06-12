@@ -141,7 +141,7 @@ function toDeg(rad) {
 	return rad * (180 / Math.PI);
 }
 
-function makeArcs(n, r1, r2, type) {
+function makeArcs(n, r1, r2, type, color) {
 	//----------------------------------------------------//
 	//Makes the paths that draw the clock cells in the 		//
 	//	SVG element																				//
@@ -223,7 +223,7 @@ function makeArcs(n, r1, r2, type) {
 			A ${radius1} ${radius1} 0 0 ${type === "terns" ? 1 : 0}
 				${a1.x} ${a1.y}
 		`);
-    path.setAttribute("fill", this.config.color);
+    path.setAttribute("fill", color);
 		path.classList.add(type);
 
 		path.id = `${type[0]}${i}`;
@@ -246,7 +246,7 @@ function makeArcs(n, r1, r2, type) {
 	}
 }
 
-function makeFace() {
+function makeFace(color) {
 	//----------------------------------------------------//
 	//I put all this in a function to keep things tidy		//
 	//I use this to make the face of the clock. It's hard	//
@@ -263,7 +263,7 @@ function makeFace() {
 
 	for (let i = 3, j = 0; i <= 81; i *= 3, j++) {
 
-		makeArcs (i, origin + gap, rad, classes[j]);
+		makeArcs (i, origin + gap, rad, classes[j], color);
 		origin = rad;
 		if (j < 2) {
 			rad = rad + (radSeed / (3 ** (j + 1)));
@@ -378,41 +378,41 @@ function gears() {
 	}
 }
 
-function startClock(){
-//
-box = svgBox.getBoundingClientRect();
+function startClock(color){
+  //
+  box = svgBox.getBoundingClientRect();
 
-center = new Point((box.width * .5), (box.height * .5));
+  center = new Point((box.width * .5), (box.height * .5));
 
-maxRad = Math.sqrt(2 * ((box.width / 2) ** 2));
+  maxRad = Math.sqrt(2 * ((box.width / 2) ** 2));
 
-gap = .005;
+  gap = .005;
 
-makeFace();
+  makeFace(color);
 
-tern = time.tern;
-hour = time.hour;
-minute = time.minute;
-second = time.second;
+  tern = time.tern;
+  hour = time.hour;
+  minute = time.minute;
+  second = time.second;
 
-time.setTime("t", tern);
-backfillBand("terns", tern);
-time.setTime("h", hour);
-backfillBand("hours", hour);
-time.setTime("m", minute);
-backfillBand("minutes", minute);
-time.setTime("s", second);
-backfillBand("seconds", second);
+  time.setTime("t", tern);
+  backfillBand("terns", tern);
+  time.setTime("h", hour);
+  backfillBand("hours", hour);
+  time.setTime("m", minute);
+  backfillBand("minutes", minute);
+  time.setTime("s", second);
+  backfillBand("seconds", second);
 
 
-let refreshInterval = setInterval(gears, 10);
+  let refreshInterval = setInterval(gears, 10);
 }
 
-let handle = setInterval(()=>{
+/*let handle = setInterval(()=>{
 		let svgBox = document.getElementById("svgBox");
 		if(svgBox != null){
 			clearInterval(handle);
       console.log(this.config.color);
 			startClock()
 		}
-}, 1000)
+}, 1000)*/
